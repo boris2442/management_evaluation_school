@@ -41,8 +41,16 @@ Route::group(['middleware' => ['web']], function () {
 });
 
 // Route Resource pour la gestion des Spécialités
-    Route::resource('specialites', SpecialiteController::class);
+Route::resource('specialites', SpecialiteController::class);
 // Routes pour la gestion des Modules
-    Route::resource('modules', ModuleController::class);
+Route::resource('modules', ModuleController::class);
 
+use App\Http\Controllers\InscriptionController;
+
+Route::prefix('inscriptions')->name('inscriptions.')->group(function () {
+    Route::get('/', [InscriptionController::class, 'index'])->name('index'); // Affiche tout (Create + Liste)
+    Route::post('/store', [InscriptionController::class, 'store'])->name('store');
+    Route::put('/{inscription}', [InscriptionController::class, 'update'])->name('update');
+    Route::delete('/{inscription}', [InscriptionController::class, 'destroy'])->name('destroy');
+});
 require __DIR__ . '/auth.php';
