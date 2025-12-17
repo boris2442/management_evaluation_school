@@ -7,6 +7,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\EvaluationController;
 use App\Http\Controllers\SpecialiteController;
 use App\Http\Controllers\AnneeAcademiqueController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\InscriptionController;
 
 Route::get('/', function () {
@@ -83,4 +84,5 @@ Route::middleware(['auth'])->group(function () {
     Route::get('users-trash', [UserController::class, 'trash'])->name('users.trash');
     Route::post('users/{id}/restore', [UserController::class, 'restore'])->name('users.restore');
 });
+    Route::get('tableau-de-bord', [DashboardController::class, 'index'])->name('tableau-de-bord');
 require __DIR__ . '/auth.php';

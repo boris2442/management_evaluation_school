@@ -48,7 +48,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/css/style.css'])
     @endif
 
-    <link rel="stylesheet" href="{{ asset('styles/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
 
 </head>

@@ -17,11 +17,11 @@
         </a>
 
         <!-- Dashboard -->
-        <a href=""
+        <a href=" {{ route('tableau-de-bord') }}" 
             class="flex items-center py-2.5 px-4 rounded-lg transition duration-200
                   'bg-blue-600  text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-neutral-800'">
             <i class="fas fa-chart-line mr-3"></i> 
-            <span>Dashboard</span>
+            <span>Tableau de bord</span>
         </a>
 
         <!-- Années Académiques -->
