@@ -65,41 +65,76 @@ class User extends Authenticatable
         return $this->hasMany(Evaluation::class);
     }
 
+    // protected static function boot()
+    // {
+    //     parent::boot();
+
+    //     static::creating(function ($user) {
+    //         if (empty($user->matricule)) {
+    //             // 1. Déterminer le préfixe selon le rôle
+    //             $prefix = match ($user->role) {
+    //                 'Administrateur' => 'A',
+    //                 'Enseignant'     => 'P', // P pour Professeur
+    //                 'Etudiant'       => 'E',
+    //                 default          => 'U',
+    //             };
+
+    //             // 2. Récupérer l'année en cours
+    //             $year = date('Y');
+
+    //             // 3. Trouver le dernier matricule similaire pour incrémenter
+    //             $lastUser = self::where('role', $user->role)
+    //                 ->where('matricule', 'like', $prefix . $year . '%')
+    //                 ->orderBy('matricule', 'desc')
+    //                 ->first();
+
+    //             if ($lastUser) {
+    //                 // On extrait les 4 derniers chiffres et on ajoute 1
+    //                 $number = intval(substr($lastUser->matricule, -4)) + 1;
+    //             } else {
+    //                 $number = 1;
+    //             }
+
+    //             // 4. Assembler le tout (ex: E + 2025 + 0001)
+    //             $user->matricule = $prefix . $year . str_pad($number, 4, '0', STR_PAD_LEFT);
+    //         }
+    //     });
+    // }
+
+
     protected static function boot()
     {
         parent::boot();
 
         static::creating(function ($user) {
             if (empty($user->matricule)) {
-                // 1. Déterminer le préfixe selon le rôle
                 $prefix = match ($user->role) {
                     'Administrateur' => 'A',
-                    'Enseignant'     => 'P', // P pour Professeur
+                    'Enseignant'     => 'P',
                     'Etudiant'       => 'E',
                     default          => 'U',
                 };
 
-                // 2. Récupérer l'année en cours
                 $year = date('Y');
 
-                // 3. Trouver le dernier matricule similaire pour incrémenter
-                $lastUser = self::where('role', $user->role)
+                // AJOUTE withTrashed() ICI 👇
+                $lastUser = self::withTrashed()
                     ->where('matricule', 'like', $prefix . $year . '%')
                     ->orderBy('matricule', 'desc')
                     ->first();
 
                 if ($lastUser) {
-                    // On extrait les 4 derniers chiffres et on ajoute 1
                     $number = intval(substr($lastUser->matricule, -4)) + 1;
                 } else {
                     $number = 1;
                 }
 
-                // 4. Assembler le tout (ex: E + 2025 + 0001)
                 $user->matricule = $prefix . $year . str_pad($number, 4, '0', STR_PAD_LEFT);
             }
         });
     }
+
+
 
 
     /**

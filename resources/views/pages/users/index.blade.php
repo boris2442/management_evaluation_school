@@ -2,7 +2,7 @@
 
 @section('content')
 {{-- 1. LE CONTENEUR PRINCIPAL --}}
-<div class="ml-0 md:ml-64 min-h-screen bg-gray-50 dark:bg-[#1F2937] antialiased transition-colors duration-300 content " 
+<div class="ml-0 md:ml-64 min-h-screen  dark:bg-[#1F2937] antialiased transition-colors duration-300 content " 
      x-data="{ openEditModal: false, currentUser: {} }">
     
     <div class="container mx-auto px-6 py-10 mt-12">
@@ -55,7 +55,7 @@
         <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-2xl shadow-sm overflow-hidden">
             <div class="overflow-x-auto">
                 <table class="w-full text-left">
-                    <thead class="bg-gray-50 dark:bg-gray-700/50 border-b border-gray-200 dark:border-gray-700">
+                    <thead class=" dark:bg-gray-700/50 border-b border-gray-200 dark:border-gray-700">
                         <tr>
                             <th class="px-6 py-4 text-[11px] font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400">Identité</th>
                             <th class="px-6 py-4 text-[11px] font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400 text-center">Genre</th>
@@ -64,7 +64,7 @@
                     </thead>
                     <tbody class="divide-y divide-gray-100 dark:divide-gray-700">
                         @foreach($users as $user)
-                        <tr class="hover:bg-gray-50 dark:hover:bg-gray-700/30 transition-colors">
+                        <tr class="hover:bg-gray-500  dark:hover:bg-gray-700/30 transition-colors">
                             <td class="px-6 py-4">
                                 <div class="text-sm font-bold text-gray-900 dark:text-white">{{ $user->name }}</div>
                                 <div class="text-xs text-gray-500 dark:text-gray-400">{{ $user->email }}</div>
@@ -96,7 +96,7 @@
                     </tbody>
                 </table>
             </div>
-            <div class="px-6 py-4 bg-gray-50 dark:bg-gray-700/30 border-t border-gray-100 dark:border-gray-700">
+            <div class="px-6 py-4  dark:bg-gray-700/30 border-t border-gray-100 dark:border-gray-700">
                 {{ $users->links() }}
             </div>
         </div>
@@ -127,20 +127,20 @@
                 @method('PUT')
 
                 <div class="px-8 py-6">
-                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-6 uppercase">Modifier Profil</h3>
+                    <h3 class="text-xl font-bold text-gray-900  mb-6 uppercase">Modifier Profil</h3>
                     <div class="space-y-4">
                         {{-- Nom --}}
                         <div>
                             <label class="block text-xs font-bold text-gray-500 uppercase mb-1">Nom Complet</label>
                             <input type="text" name="name" x-model="currentUser.name" 
-                                   class="w-full bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl px-4 py-3 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 outline-none transition-all">
+                                   class="w-full  dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl px-4 py-3 text-gray-900  focus:ring-2 focus:ring-blue-500 outline-none transition-all">
                         </div>
 
                         {{-- Email --}}
                         <div>
                             <label class="block text-xs font-bold text-gray-500 uppercase mb-1">Adresse Email</label>
                             <input type="email" name="email" x-model="currentUser.email" 
-                                   class="w-full bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl px-4 py-3 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 outline-none transition-all">
+                                   class="w-full dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl px-4 py-3 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 outline-none transition-all">
                         </div>
 
                         <div class="grid grid-cols-2 gap-4">
@@ -159,7 +159,7 @@
                             <div>
                                 <label class="block text-xs font-bold text-gray-500 uppercase mb-1">Rôle</label>
                                 <select name="role" x-model="currentUser.role" 
-                                        class="w-full bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl px-4 py-3 text-gray-900 dark:text-white outline-none">
+                                        class="w-full dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl px-4 py-3 text-gray-900 dark:text-white outline-none">
                                     @foreach($roles as $role)
                                         <option value="{{ $role }}">{{ $role }}</option>
                                     @endforeach
@@ -169,7 +169,7 @@
                     </div>
                 </div>
 
-                <div class="px-8 py-4 bg-gray-50 dark:bg-gray-800/50 flex justify-end gap-3 border-t border-gray-100 dark:border-gray-700">
+                <div class="px-8 py-4  dark:bg-gray-800/50 flex justify-end gap-3 border-t border-gray-100 dark:border-gray-700">
                     <button type="button" @click="openEditModal = false" class="text-gray-400 font-bold px-4 hover:text-gray-600 transition">Annuler</button>
                     <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-xl font-bold shadow-lg active:scale-95 transition-all">
                         Enregistrer

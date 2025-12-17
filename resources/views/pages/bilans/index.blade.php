@@ -11,7 +11,7 @@
         </div>
         
         {{-- Bouton d'impression (Optionnel pour plus de professionnalisme) --}}
-        <button onclick="window.print()" class="bg-gray-800 text-white px-4 py-2 rounded shadow hover:bg-black transition no-print">
+        <button onclick="window.print()" class="bg-gray-800 text-white px-2 py-2 rounded shadow hover:bg-black transition no-print text-xs">
             Imprimer le Bilan
         </button>
     </div>

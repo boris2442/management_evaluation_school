@@ -39,7 +39,7 @@
     <div class="bg-white dark:bg-neutral-800 rounded-xl shadow overflow-hidden">
         <h2 class="p-6 text-lg font-semibold border-b dark:border-neutral-700 dark:text-white">Inscriptions Actuelles</h2>
         <table class="w-full text-left">
-            <thead class="bg-gray-50 dark:bg-neutral-700 dark:text-gray-300">
+            <thead class=" dark:bg-neutral-700 dark:text-gray-300">
                 <tr>
                     <th class="p-4">Matricule</th>
                     <th class="p-4">Étudiant</th>
