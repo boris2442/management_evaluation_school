@@ -67,9 +67,20 @@ Route::prefix('evaluations')->name('evaluations.')->group(function () {
     Route::post('/store', [EvaluationController::class, 'store'])->name('store');
 });
 Route::get('/bilan/etudiant/{id}', [BilanController::class, 'show'])->name('bilan.show');
-
+Route::get('/bilan/etudiant/{id}', [BilanController::class, 'show'])->name('bilan.show');
 
 
 // Route pour afficher le grand tableau récapitulatif
 Route::get('/bilan-general', [BilanController::class, 'index'])->name('bilan.index');
+
+use App\Http\Controllers\UserController;
+
+Route::middleware(['auth'])->group(function () {
+    // Gestion classique
+    Route::resource('users', UserController::class);
+    
+    // Gestion Corbeille
+    Route::get('users-trash', [UserController::class, 'trash'])->name('users.trash');
+    Route::post('users/{id}/restore', [UserController::class, 'restore'])->name('users.restore');
+});
 require __DIR__ . '/auth.php';

@@ -66,7 +66,14 @@
                 @foreach($etudiants as $index => $etudiant)
                 <tr class="hover:bg-gray-50 dark:hover:bg-neutral-700 transition">
                     <td class="border border-green-800 p-2 text-center font-bold">{{ $index + 1 }}</td>
-                    <td class="border border-green-800 p-2 font-bold text-left">{{ $etudiant->name }}</td>
+                    {{-- <td class="border border-green-800 p-2 font-bold text-left">{{ $etudiant->name }}</td> --}}
+
+<td class="border border-green-800 p-2 font-bold text-left">
+    <a href="{{ route('bilan.show', $etudiant->id) }}" class="text-blue-600 hover:text-blue-800 hover:underline transition-colors duration-200">
+        {{ $etudiant->name }}
+    </a>
+</td>
+
 
                     {{-- Notes Semestre 1 --}}
                     @php $sommeS1 = 0; $coefS1 = 0; @endphp

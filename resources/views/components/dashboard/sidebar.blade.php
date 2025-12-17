@@ -1,4 +1,4 @@
-<aside id="sidebar" class="fixed top-0 left-0 z-40 w-64 h-screen pt-16 transition-transform -translate-x-full bg-white border-r border-gray-200 md:translate-x-0 dark:bg-neutral-900 dark:border-neutral-700">
+<aside id="sidebar" class="fixed top-0 left-0 z-40 w-64 h-screen pt-16 transition-transform -translate-x-full bg-white border-r border-gray-200 md:translate-x-0 dark:bg-neutral-900 dark:border-neutral-700 overflow-y-auto">
     
     <!-- Titre entreprise -->
     <div class="h-16 flex items-center justify-center uppercase font-bold text-xl 
@@ -82,11 +82,24 @@
         <!-- Bilan general -->
         <a 
         href="{{ route('bilan.index') }}"
-          class="{{ request()->routeIs('bilan.index')
+          class="
+          flex items-center py-2.5 px-4 rounded-lg transition duration-200
+          {{ request()->routeIs('bilan.index')
             ? 'bg-blue-600 text-white'
             : 'text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-neutral-800' }}">
             <i class="fas fa-chart-bar mr-3"></i> 
             <span>Bilan general</span>
+        </a>
+        <!--Utilisateurs-->
+        <a 
+        href="{{ route('users.index') }}"
+          class="
+          flex items-center py-2.5 px-4 rounded-lg transition duration-200
+          {{ request()->routeIs('users.index')
+            ? 'bg-blue-600 text-white'
+            : 'text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-neutral-800' }}">
+            <i class="fas fa-users mr-3"></i> 
+            <span>Utilisateurs</span>
         </a>
 
         <!-- Séparateur -->
