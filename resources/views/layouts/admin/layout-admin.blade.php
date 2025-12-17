@@ -56,15 +56,15 @@
 {{-- Corps de la page avec fond basique pour la transition --}}
 <body 
 
- class='bg-gray-100 dark:bg-gray-900 transition-colors duration-300' 
+ class=' dark:bg-gray-900 transition-colors duration-300' 
 
 >
-    
-    <div class="flex h-screen overflow-hidden">
+
+    <div class="flex h-screen overflow-hidden dark:bg-gray-900">
         @include('components.dashboard.sidebar')
         <div class="flex-1 flex flex-col overflow-y-auto">
             @include('components.dashboard.header')
-            <main class="flex-1  bg-gray-100 dark:bg-gray-900 "  >
+            <main class="flex-1  dark:bg-gray-900 "  >
                 @yield('content')
             </main>
         </div>

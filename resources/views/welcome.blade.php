@@ -67,7 +67,7 @@
         @endif
 </head>
 
-<body class="dark-mode-transition bg-gray-50 dark:bg-gray-900 font-sans antialiased text-gray-800 dark:text-gray-200">
+<body class="dark-mode-transition dark:bg-gray-900 font-sans antialiased text-gray-800 dark:text-gray-200">
 
     <div class="min-h-screen flex flex-col justify-between">
 

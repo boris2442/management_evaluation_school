@@ -1,9 +1,9 @@
 @extends('layouts.admin.layout-admin')
 
 @section('content')
-<div class="min-h-screen bg-gray-50 dark:bg-neutral-900 py-10 px-4 ml-0 md:ml-64 mt-16">
+<div class="min-h-screen  dark:bg-neutral-900 py-10 px-4 ml-0 md:ml-64 mt-16">
     <div class="flex justify-between items-center mb-6">
-        <h1 class="text-2xl font-bold text-gray-800 dark:text-white">Gestion des Années Académiques</h1>
+        <h1 class="text-2xl font-bold text-gray-100 ">Gestion des Années Académiques</h1>
         
         {{-- Bouton Kebab Menu avec Dropdown --}}
         <div class="relative inline-block text-left" x-data="{ open: false }" @click.outside="open = false">
