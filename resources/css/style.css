@@ -1,0 +1,54 @@
+/* Sidebar transition */
+#sidebar {
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Smooth transitions */
+.transition-all {
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 300ms;
+}
+
+/* Dark mode fixes */
+.dark .bg-white {
+    background-color: #1f2937;
+} */
+
+.dark .text-gray-800 {
+    color: #f3f4f6;
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+    main {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 2px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.dark ::-webkit-scrollbar-track {
+    background: #374151;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 2px;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+    background: #6b7280;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
