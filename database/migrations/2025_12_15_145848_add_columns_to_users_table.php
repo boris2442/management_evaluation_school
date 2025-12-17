@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::table('users', function (Blueprint $table) {
             $table->string('matricule', 15)->unique(); // Contrainte 5
         $table->enum('sexe', ['Masculin', 'Féminin']);
-            $table->enum('role', ['Administrateur', 'Enseignant', 'Etudiant']); // Profil/Rôle
+            $table->enum('role', ['Administrateur', 'Enseignant', 'Etudiant']) ->default('Etudiant'); // Profil/Rôle
             $table->softDeletes(); // Pour la suppression logique
         });
     }

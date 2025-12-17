@@ -10,6 +10,8 @@
         <h2 class="text-lg font-semibold mb-4 text-blue-600">Nouvelle Inscription</h2>
         <form action="{{ route('inscriptions.store') }}" method="POST">
             @csrf
+            {{-- AJOUTE CETTE LIGNE ICI --}}
+        <input type="hidden" name="annee_academique_id" value="{{ $anneeActive->id }}">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                     <label class="block mb-2 dark:text-gray-300">Spécialité</label>

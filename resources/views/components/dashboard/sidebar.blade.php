@@ -59,28 +59,34 @@
 </a>
 
 
-        <!-- Commandes -->
-        <a 
+        <!-- Inscriptions -->
+        <a href="{{ route('inscriptions.index') }}"
             class="flex items-center py-2.5 px-4 rounded-lg transition duration-200
-          'bg-blue-600 text-white' : 'text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-neutral-800' }}">
-            <i class="fas fa-layer-group mr-3"></i> 
-            <span>Commandes</span>
+          {{ request()->routeIs('inscriptions.*')
+                ? 'bg-blue-600 text-white'
+                : 'text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-neutral-800' }}">
+            <i class="fas fa-user-graduate mr-3"></i> 
+            <span>Inscriptions</span>
         </a>
 
-        <!-- Paiements -->
-        <a 
+        <!-- Eva -->
+        <a href="{{ route('evaluations.index') }}"
             class="flex items-center py-2.5 px-4 rounded-lg transition duration-200
-                 'bg-blue-600 text-white' : 'text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-neutral-800' }}">
-            <i class="fas fa-money-check-alt mr-3"></i> 
-            <span>Paiements</span>
+                 {{ request()->routeIs('evaluations.*')
+                    ? 'bg-blue-600 text-white'
+                    : 'text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-neutral-800' }}">
+            <i class="fas fa-file-alt mr-3"></i> 
+            <span>Evaluations</span>
         </a>
 
-        <!-- Dépenses -->
+        <!-- Bilan general -->
         <a 
-            class="flex items-center py-2.5 px-4 rounded-lg transition duration-200
-               'bg-blue-600 text-white' : 'text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-neutral-800' }}">
-            <i class="fas fa-money-bill mr-3"></i> 
-            <span>Dépenses</span>
+        href="{{ route('bilan.index') }}"
+          class="{{ request()->routeIs('bilan.index')
+            ? 'bg-blue-600 text-white'
+            : 'text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-neutral-800' }}">
+            <i class="fas fa-chart-bar mr-3"></i> 
+            <span>Bilan general</span>
         </a>
 
         <!-- Séparateur -->

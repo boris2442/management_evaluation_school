@@ -1,10 +1,13 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BilanController;
 use App\Http\Controllers\ModuleController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\EvaluationController;
 use App\Http\Controllers\SpecialiteController;
 use App\Http\Controllers\AnneeAcademiqueController;
+use App\Http\Controllers\InscriptionController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -45,7 +48,6 @@ Route::resource('specialites', SpecialiteController::class);
 // Routes pour la gestion des Modules
 Route::resource('modules', ModuleController::class);
 
-use App\Http\Controllers\InscriptionController;
 
 Route::prefix('inscriptions')->name('inscriptions.')->group(function () {
     Route::get('/', [InscriptionController::class, 'index'])->name('index'); // Affiche tout (Create + Liste)
@@ -53,4 +55,21 @@ Route::prefix('inscriptions')->name('inscriptions.')->group(function () {
     Route::put('/{inscription}', [InscriptionController::class, 'update'])->name('update');
     Route::delete('/{inscription}', [InscriptionController::class, 'destroy'])->name('destroy');
 });
+
+
+
+
+Route::prefix('evaluations')->name('evaluations.')->group(function () {
+    // Route pour afficher la page de saisie et filtrer
+    Route::get('/', [EvaluationController::class, 'index'])->name('index');
+
+    // Route pour enregistrer les notes en masse
+    Route::post('/store', [EvaluationController::class, 'store'])->name('store');
+});
+Route::get('/bilan/etudiant/{id}', [BilanController::class, 'show'])->name('bilan.show');
+
+
+
+// Route pour afficher le grand tableau récapitulatif
+Route::get('/bilan-general', [BilanController::class, 'index'])->name('bilan.index');
 require __DIR__ . '/auth.php';
