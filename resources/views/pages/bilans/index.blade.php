@@ -1,7 +1,10 @@
 @extends('layouts.admin.layout-admin')
 
 @section('content')
-<div class="container mx-auto px-4 py-8 ml-0 md:ml-64 mt-16 dark:bg-neutral-900 min-h-screen">
+<div 
+class="ml-0 md:ml-64 min-h-screen  dark:bg-[#1F2937] antialiased transition-colors duration-300 content"
+>
+
     
     {{-- En-tête de la page --}}
     <div class="mb-6 flex justify-between items-center">

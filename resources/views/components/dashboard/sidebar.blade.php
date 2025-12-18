@@ -90,6 +90,20 @@
             <i class="fas fa-chart-bar mr-3"></i> 
             <span>Bilan general</span>
         </a>
+        <!-- Affectation -->
+        <a 
+        href="{{ route('affectations.index') }}"
+          class="
+          flex items-center py-2.5 px-4 rounded-lg transition duration-200
+          {{ request()->routeIs('affectations.index')
+            ? 'bg-blue-600 text-white'
+            : 'text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-neutral-800' }}">
+            <i class="fas fa-chart-bar mr-3"></i> 
+            <span>Affectation</span>
+        </a>
+      
+
+
         <!--Utilisateurs-->
         <a 
         href="{{ route('users.index') }}"

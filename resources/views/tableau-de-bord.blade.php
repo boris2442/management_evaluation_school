@@ -1,12 +1,14 @@
 @extends('layouts.admin.layout-admin')
 
 @section('content')
-<div class="container mx-auto px-4 py-8 ml-0 md:ml-64 mt-16 min-h-screen  dark:bg-neutral-900 transition-colors duration-300">
+<div
+class="ml-0 md:ml-64 min-h-screen  dark:bg-[#1F2937] antialiased transition-colors duration-300 content mt-16" 
+>
     
     {{-- ENTÊTE ET SÉLECTEUR D'ANNÉE --}}
     <div class="flex flex-col md:flex-row md:items-center justify-between mb-10 gap-6">
         <div>
-            <h1 class="text-4xl font-black text-gray-900 dark:text-white tracking-tight">Analytics <span class="text-blue-600">Global</span></h1>
+            <h1 class="text-3xl font-black text-gray-900 dark:text-white tracking-tight">Analytics <span class="text-blue-600">Global</span></h1>
             <p class="text-gray-500 dark:text-gray-400 mt-1">Données consolidées pour l'exercice <span class="font-bold text-gray-800 dark:text-gray-200">{{ $anneeActive->libelle }}</span></p>
         </div>
         

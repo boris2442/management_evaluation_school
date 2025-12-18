@@ -134,7 +134,14 @@ class User extends Authenticatable
         });
     }
 
-
+/**
+ * Les modules enseignés par cet utilisateur (professeur).
+ */
+public function modulesEnseignes()
+{
+    return $this->belongsToMany(Module::class, 'module_enseignant', 'user_id', 'module_id')
+                ->withTimestamps();
+}
 
 
     /**

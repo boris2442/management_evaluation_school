@@ -1,14 +1,16 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\BilanController;
 use App\Http\Controllers\ModuleController;
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\EvaluationController;
-use App\Http\Controllers\SpecialiteController;
-use App\Http\Controllers\AnneeAcademiqueController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\EvaluationController;
+use App\Http\Controllers\ModuleEnseignantController;
+use App\Http\Controllers\SpecialiteController;
 use App\Http\Controllers\InscriptionController;
+use App\Http\Controllers\AnneeAcademiqueController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -25,17 +27,6 @@ Route::middleware('auth')->group(function () {
 });
 
 
-// ... Assurez-vous que l'utilisateur est authentifié pour accéder à ces routes
-// Vous devriez wraper ces routes dans un middleware 'auth'
-
-// Route::group(function () {
-//     // Route Resource pour les opérations CRUD standard (index, create, store, edit, update, destroy)
-//     Route::resource('annee-academiques', AnneeAcademiqueController::class);
-
-//     // Route spécifique pour l'activation/désactivation de l'année
-//     Route::put('annee-academiques/{annee_academique}/toggle-statut', [AnneeAcademiqueController::class, 'toggleStatut'])
-//         ->name('annee-academiques.toggle-statut');
-// });
 
 Route::group(['middleware' => ['web']], function () {
     Route::resource('annee-academiques', AnneeAcademiqueController::class);
@@ -74,7 +65,7 @@ Route::get('/bilan/etudiant/{id}', [BilanController::class, 'show'])->name('bila
 // Route pour afficher le grand tableau récapitulatif
 Route::get('/bilan-general', [BilanController::class, 'index'])->name('bilan.index');
 
-use App\Http\Controllers\UserController;
+
 
 Route::middleware(['auth'])->group(function () {
     // Gestion classique
@@ -85,4 +76,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('users/{id}/restore', [UserController::class, 'restore'])->name('users.restore');
 });
     Route::get('tableau-de-bord', [DashboardController::class, 'index'])->name('tableau-de-bord');
+
+    Route::get('/affectations', [ModuleEnseignantController::class, 'index'])->name('affectations.index');
+Route::post('/affectations', [ModuleEnseignantController::class, 'store'])->name('affectations.store');
 require __DIR__ . '/auth.php';

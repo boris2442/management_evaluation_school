@@ -2,7 +2,8 @@
 
 @section('content')
 {{-- 1. LE CONTENEUR PRINCIPAL --}}
-<div class="ml-0 md:ml-64 min-h-screen  dark:bg-[#1F2937] antialiased transition-colors duration-300 content " 
+<div class="
+ml-0 md:ml-64 min-h-screen  dark:bg-[#1F2937] antialiased transition-colors duration-300 content " 
      x-data="{ openEditModal: false, currentUser: {} }">
     
     <div class="container mx-auto px-6 py-10 mt-12">
