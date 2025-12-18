@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>AcademicaPro | Gestion Académique Simplifiée</title>
 
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    {{-- <link rel="stylesheet" href="{{ asset('resources/css/app.css') }}"> --}}
     
     <style>
         .dark-mode-transition {
@@ -69,7 +69,7 @@
 
 <body class="dark-mode-transition dark:bg-gray-900 font-sans antialiased text-gray-800 dark:text-gray-200">
 
-    <div class="min-h-screen flex flex-col justify-between">
+    <div class="min-h-screen  flex flex-col justify-between">
 
         {{-- Bande de Navigation (Simplifiée) --}}
         <header class="p-4 sm:p-6 bg-white dark:bg-gray-800 shadow-md">
