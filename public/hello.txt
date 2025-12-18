@@ -3,3 +3,12 @@ Hautes,Attribution Enseignants,Faire en sorte qu'un prof ne voie que ses matièr
 Moyenne,Export PDF Officiel,Créer un vrai document avec logo et signature (pas juste l'impression navigateur).
 Moyenne,Espace Étudiant,Une interface simple pour qu'ils voient leurs notes.
 Basse,Clôture d'Année,Un bouton pour archiver les notes et passer à 2025-2026.
+
+
+
+
+Bloc,Tâche,Pourquoi c'est important ?
+1. Espace Étudiant,"Création d'une interface ""Lecture seule"".",L'étudiant doit pouvoir se connecter pour voir ses notes sans pouvoir les modifier.
+2. Impressions PDF,Relevés de notes et Procès-verbaux (PV).,C'est le document officiel que l'école remet à la fin. Il doit être beau et bien mis en page.
+3. Clôture & Archives,"Bouton ""Verrouiller l'année"".","Une fois le bilan fini, on doit empêcher toute modification pour passer à l'année suivante."
+4. Finitions UI/UX,Notifications et Validations.,"Ajouter des messages ""Succès"" partout et s'assurer que le mode sombre est parfait sur toutes les pages."

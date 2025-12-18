@@ -1,16 +1,18 @@
 <?php
 
+
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\BilanController;
 use App\Http\Controllers\ModuleController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\StudentController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\EvaluationController;
-use App\Http\Controllers\ModuleEnseignantController;
 use App\Http\Controllers\SpecialiteController;
 use App\Http\Controllers\InscriptionController;
 use App\Http\Controllers\AnneeAcademiqueController;
+use App\Http\Controllers\ModuleEnseignantController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -82,4 +84,11 @@ Route::get('/affectations', [ModuleEnseignantController::class, 'index'])->name(
 Route::post('/affectations', [ModuleEnseignantController::class, 'store'])->name('affectations.store');
 // Suppression des affectations d'un enseignant
     Route::delete('/affectations/{id}', [ModuleEnseignantController::class, 'destroy'])->name('affectations.destroy');
+
+
+
+    // Route pour l'espace étudiant
+Route::middleware(['auth'])->group(function () {
+    Route::get('/mes-notes', [StudentController::class, 'index'])->name('student.notes');
+});
 require __DIR__ . '/auth.php';
