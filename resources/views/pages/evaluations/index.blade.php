@@ -2,9 +2,9 @@
 
 @section('content')
 <div
-class="ml-0 md:ml-64 min-h-screen  dark:bg-[#1F2937] antialiased transition-colors duration-300 content"
+class="ml-0 md:ml-64 min-h-screen  dark:bg-[#1F2937] antialiased transition-colors duration-300 content  mt-3" 
  >
-    <h1 class="text-2xl font-bold mb-6 dark:text-white">Saisie des Notes - {{ $anneeActive->libelle }}</h1>
+    <h1 class="text-2xl font-bold mb-6 dark:text-white mt-16">Saisie des Notes - {{ $anneeActive->libelle }}</h1>
 
     {{-- Formulaire de FILTRAGE --}}
     <div class="bg-white dark:bg-neutral-800 p-6 rounded-xl shadow mb-8">

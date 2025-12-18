@@ -1,0 +1,5 @@
+Priorité,Tâche,Description
+Hautes,Attribution Enseignants,Faire en sorte qu'un prof ne voie que ses matières.
+Moyenne,Export PDF Officiel,Créer un vrai document avec logo et signature (pas juste l'impression navigateur).
+Moyenne,Espace Étudiant,Une interface simple pour qu'ils voient leurs notes.
+Basse,Clôture d'Année,Un bouton pour archiver les notes et passer à 2025-2026.

@@ -34,4 +34,14 @@ class ModuleEnseignantController extends Controller
 
         return redirect()->back()->with('success', 'Affectations mises à jour avec succès.');
     }
+
+
+    public function destroy($id)
+{
+    $enseignant = User::findOrFail($id);
+    // On détache tous les modules liés à cet enseignant
+    $enseignant->modulesEnseignes()->detach();
+
+    return redirect()->back()->with('success', 'Toutes les affectations ont été retirées pour cet enseignant.');
+}
 }

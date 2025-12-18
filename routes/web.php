@@ -64,19 +64,22 @@ Route::get('/bilan/etudiant/{id}', [BilanController::class, 'show'])->name('bila
 
 // Route pour afficher le grand tableau récapitulatif
 Route::get('/bilan-general', [BilanController::class, 'index'])->name('bilan.index');
-
+// Route pour enregistrer les notes du bilan (70%)
+Route::post('/bilan-general/store', [BilanController::class, 'store'])->name('bilans.store');
 
 
 Route::middleware(['auth'])->group(function () {
     // Gestion classique
     Route::resource('users', UserController::class);
-    
+
     // Gestion Corbeille
     Route::get('users-trash', [UserController::class, 'trash'])->name('users.trash');
     Route::post('users/{id}/restore', [UserController::class, 'restore'])->name('users.restore');
 });
-    Route::get('tableau-de-bord', [DashboardController::class, 'index'])->name('tableau-de-bord');
+Route::get('tableau-de-bord', [DashboardController::class, 'index'])->name('tableau-de-bord');
 
-    Route::get('/affectations', [ModuleEnseignantController::class, 'index'])->name('affectations.index');
+Route::get('/affectations', [ModuleEnseignantController::class, 'index'])->name('affectations.index');
 Route::post('/affectations', [ModuleEnseignantController::class, 'store'])->name('affectations.store');
+// Suppression des affectations d'un enseignant
+    Route::delete('/affectations/{id}', [ModuleEnseignantController::class, 'destroy'])->name('affectations.destroy');
 require __DIR__ . '/auth.php';
