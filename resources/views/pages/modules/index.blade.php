@@ -1,6 +1,8 @@
 @extends('layouts.admin.layout-admin') 
 
 @section('content')
+<section>
+
 <div
 class="ml-0 md:ml-64 min-h-screen  dark:bg-[#1F2937] antialiased transition-colors duration-300 content mt-16" 
  >
@@ -219,4 +221,5 @@ class="ml-0 md:ml-64 min-h-screen  dark:bg-[#1F2937] antialiased transition-colo
         @endforelse
     </div>
 </div>
+</section>
 @endsection

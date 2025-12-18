@@ -44,6 +44,8 @@ class="ml-0 md:ml-64 min-h-screen  dark:bg-[#1F2937] antialiased transition-colo
 
 
    <div class="mt-12 bg-white dark:bg-neutral-800 rounded-3xl border dark:border-neutral-700 shadow-sm overflow-visible">
+
+    
     <div class="p-6 border-b dark:border-neutral-700">
         <h3 class="text-xl font-bold dark:text-white">Récapitulatif des attributions</h3>
     </div>
@@ -164,7 +166,7 @@ class="ml-0 md:ml-64 min-h-screen  dark:bg-[#1F2937] antialiased transition-colo
     }
 
 
-    
+
 </script>
     </div>
 </div>

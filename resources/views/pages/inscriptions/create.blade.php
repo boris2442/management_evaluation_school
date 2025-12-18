@@ -1,6 +1,7 @@
 @extends('layouts.admin.layout-admin')
 
 @section('content')
+<section>
 <div class="container mx-auto px-4 py-8 ml-0 md:ml-64 mt-16 dark:bg-neutral-900 min-h-screen">
     <div class="flex flex-col md:flex-row md:items-center justify-between mb-6">
         <div>
@@ -77,4 +78,5 @@
         </div>
     </form>
 </div>
+</section>
 @endsection

@@ -1,6 +1,7 @@
 @extends('layouts.admin.layout-admin')
 
 @section('content')
+<section>
 <div class="ml-0 md:ml-64 min-h-screen p-4 md:p-8 mt-16  dark:bg-neutral-950 transition-all">
     
     {{-- ENTÊTE OFFICIEL STYLE PAPIER --}}
@@ -112,4 +113,5 @@
         </div>
     </div>
 </div>
+</section>
 @endsection
