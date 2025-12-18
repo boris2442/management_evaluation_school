@@ -17,7 +17,12 @@
             <div class="text-center w-1/3">
                 <div class="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-2xl">
                     <h1 class="text-xl font-black text-blue-900 dark:text-blue-400 uppercase tracking-tighter">Tableau de Bord</h1>
-                    <p class="text-xs font-bold text-gray-500 uppercase">{{ $anneeActive->nom_annee ?? '2024-2025' }}</p>
+                    {{-- <p class="text-xs font-bold text-gray-500 uppercase">{{ $anneeActive->nom_annee ?? '2024-2025' }}</p> --}}
+
+                    <p class="text-xs font-bold text-gray-500 uppercase">
+    Année Académique : 
+    {{ \Carbon\Carbon::parse($anneeActive->date_debut)->format('Y') }}-{{ \Carbon\Carbon::parse($anneeActive->date_fin)->format('Y') }}
+</p>
                 </div>
             </div>
 
