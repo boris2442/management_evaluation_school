@@ -9,7 +9,7 @@ class="ml-0 md:ml-64 min-h-screen  dark:bg-[#1F2937] antialiased transition-colo
     <h1 class="text-2xl font-bold mb-6 dark:text-white">Gestion des Inscriptions - {{ $anneeActive->libelle }}</h1>
 
     {{-- SECTION 1 : FORMULAIRE DE CRÉATION --}}
-    <div class="bg-white dark:bg-neutral-800 p-6 rounded-xl shadow mb-8">
+    <div class=" dark:bg-neutral-800 p-6 rounded-xl shadow mb-8">
         <h2 class="text-lg font-semibold mb-4 text-blue-600">Nouvelle Inscription</h2>
         <form action="{{ route('inscriptions.store') }}" method="POST">
             @csrf
@@ -18,7 +18,7 @@ class="ml-0 md:ml-64 min-h-screen  dark:bg-[#1F2937] antialiased transition-colo
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                     <label class="block mb-2 dark:text-gray-300">Spécialité</label>
-                    <select name="specialite_id" class="w-full rounded-lg border-gray-300 dark:bg-neutral-700 dark:text-white" required>
+                    <select name="specialite_id" class="w-full rounded-lg border-gray-300  dark:text-white" required>
                         @foreach($specialites as $s)
                             <option value="{{ $s->id }}">{{ $s->nom_specialite }}</option>
                         @endforeach
@@ -26,7 +26,7 @@ class="ml-0 md:ml-64 min-h-screen  dark:bg-[#1F2937] antialiased transition-colo
                 </div>
                 <div>
                     <label class="block mb-2 dark:text-gray-300">Étudiants disponibles</label>
-                    <select name="etudiant_ids[]" class="w-full rounded-lg border-gray-300 dark:bg-neutral-700 dark:text-white" multiple required>
+                    <select name="etudiant_ids[]" class="w-full rounded-lg dark:bg-neutral-700 dark:text-white" multiple required>
                         @foreach($etudiantsDisponibles as $e)
                             <option value="{{ $e->id }}">{{ $e->name }} ({{ $e->matricule }})</option>
                         @endforeach

@@ -10,6 +10,8 @@
     <nav class="mt-6 px-4 space-y-2">
         <!-- Accueil -->
         <a href=" /"  
+        title="retourner a l'accueil"
+        aria-label="Retournez a la page d'accueil"
             class="flex items-center py-2.5 px-4 rounded-lg transition duration-200
                'bg-blue-600 text-white' : 'text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-neutral-800'">
             <i class="fas fa-home mr-3"></i> 
@@ -18,6 +20,8 @@
 
         <!-- Dashboard -->
         <a href=" {{ route('tableau-de-bord') }}" 
+  title="Tableau de bord"
+        aria-label="  Voir le tableau de bord"     
             class="flex items-center py-2.5 px-4 rounded-lg transition duration-200
                   'bg-blue-600  text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-neutral-800'">
             <i class="fas fa-chart-line mr-3"></i> 
@@ -26,6 +30,8 @@
 
         <!-- Années Académiques -->
      <a href="{{ route('annee-academiques.index') }}"
+     title="  Années académiques  "
+     aria-label=" Gérer les années académiques"  
    class="flex items-center py-2.5 px-4 rounded-lg transition duration-200
    {{ request()->routeIs('annee-academiques.*')
         ? 'bg-[#F3F4F6] dark:bg-black text-gray-900 dark:text-white'
@@ -36,8 +42,10 @@
 </a>
 
 {{-- Si les liens sont active on do --}}
-        <!-- Utilisateurs -->
+        <!-- Specialites -->
         <a 
+            title="  Specialites  "
+     aria-label=" Gérer les Specialites"  
         href="{{ route('specialites.index') }}"
           class="flex items-center py-2.5 px-4 rounded-lg transition duration-200
    {{ request()->routeIs('specialites.*')
@@ -49,6 +57,8 @@
 
         <!-- Clients -->
    <a href="{{ route('modules.index') }}"
+        title="  Modules  "
+     aria-label=" Gérer les Modules"  
    class="flex items-center py-2.5 px-4 rounded-lg transition duration-200
    {{ request()->routeIs('modules.*')
         ? 'bg-[#F3F4F6] dark:bg-neutral-800 text-gray-900 dark:text-white'
@@ -61,6 +71,8 @@
 
         <!-- Inscriptions -->
         <a href="{{ route('inscriptions.index') }}"
+            title=" Inscriptions  "
+        aria-label=" Gérer les Inscriptions"
             class="flex items-center py-2.5 px-4 rounded-lg transition duration-200
           {{ request()->routeIs('inscriptions.*')
                 ? 'bg-blue-600 text-white'
@@ -71,6 +83,8 @@
 
         <!-- Eva -->
         <a href="{{ route('evaluations.index') }}"
+            title=" Evaluations  "
+        aria-label=" Gérer les Evaluations"
             class="flex items-center py-2.5 px-4 rounded-lg transition duration-200
                  {{ request()->routeIs('evaluations.*')
                     ? 'bg-blue-600 text-white'
@@ -82,6 +96,8 @@
         <!-- Bilan general -->
         <a 
         href="{{ route('bilan.index') }}"
+               title=" Bilan general  "
+            aria-label="Gestion des bilans generaux"
           class="
           flex items-center py-2.5 px-4 rounded-lg transition duration-200
           {{ request()->routeIs('bilan.index')
@@ -93,6 +109,8 @@
         <!-- Affectation -->
         <a 
         href="{{ route('affectations.index') }}"
+            title=" Affectations  "
+            aria-label="Gestion des affectations"
           class="
           flex items-center py-2.5 px-4 rounded-lg transition duration-200
           {{ request()->routeIs('affectations.index')
@@ -107,6 +125,8 @@
         <!--Utilisateurs-->
         <a 
         href="{{ route('users.index') }}"
+        title=" Utilisateurs  "
+        aria-label=" Gérer les Utilisateurs"
           class="
           flex items-center py-2.5 px-4 rounded-lg transition duration-200
           {{ request()->routeIs('users.index')
