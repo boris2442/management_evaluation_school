@@ -12,6 +12,7 @@ use App\Http\Controllers\EvaluationController;
 use App\Http\Controllers\SpecialiteController;
 use App\Http\Controllers\InscriptionController;
 use App\Http\Controllers\AnneeAcademiqueController;
+use App\Http\Controllers\ImportExportUserController;
 use App\Http\Controllers\ModuleEnseignantController;
 
 Route::get('/', function () {
@@ -71,23 +72,32 @@ Route::post('/bilan-general/store', [BilanController::class, 'store'])->name('bi
 
 
 Route::middleware(['auth'])->group(function () {
-    // Gestion classique
-    Route::resource('users', UserController::class);
-
+// Cette route doit être placée AVANT le resource
+    Route::post('users/import', [ImportExportUserController::class, 'store'])->name('users.import');
     // Gestion Corbeille
     Route::get('users-trash', [UserController::class, 'trash'])->name('users.trash');
     Route::post('users/{id}/restore', [UserController::class, 'restore'])->name('users.restore');
+    Route::delete('/users/bulk-delete', [UserController::class, 'bulkDestroy'])->name('users.bulkDestroy');
+
+    // Actions Groupées Corbeille
+    Route::post('users/bulk-restore', [UserController::class, 'bulkRestore'])->name('users.bulkRestore');
+    Route::delete('users/bulk-force-delete', [UserController::class, 'bulkForceDelete'])->name('users.bulkForceDelete');
+
+    // LA ROUTE QUI MANQUAIT :
+    Route::delete('users/{id}/force-delete', [UserController::class, 'forceDelete'])->name('users.forceDelete');
+    // Gestion classique
+    Route::resource('users', UserController::class);
 });
 Route::get('tableau-de-bord', [DashboardController::class, 'index'])->name('tableau-de-bord');
 
 Route::get('/affectations', [ModuleEnseignantController::class, 'index'])->name('affectations.index');
 Route::post('/affectations', [ModuleEnseignantController::class, 'store'])->name('affectations.store');
 // Suppression des affectations d'un enseignant
-    Route::delete('/affectations/{id}', [ModuleEnseignantController::class, 'destroy'])->name('affectations.destroy');
+Route::delete('/affectations/{id}', [ModuleEnseignantController::class, 'destroy'])->name('affectations.destroy');
 
 
 
-    // Route pour l'espace étudiant
+// Route pour l'espace étudiant
 Route::middleware(['auth'])->group(function () {
     Route::get('/mes-notes', [StudentController::class, 'index'])->name('student.notes');
 });

@@ -106,8 +106,36 @@ class User extends Authenticatable
     {
         parent::boot();
 
+        // static::creating(function ($user) {
+        //     if (empty($user->matricule)) {
+        //         $prefix = match ($user->role) {
+        //             'Administrateur' => 'A',
+        //             'Enseignant'     => 'P',
+        //             'Etudiant'       => 'E',
+        //             default          => 'U',
+        //         };
+
+        //         $year = date('Y');
+
+
+        //         $lastUser = self::withTrashed()
+        //             ->where('matricule', 'like', $prefix . $year . '%')
+        //             ->orderBy('matricule', 'desc')
+        //             ->first();
+
+        //         if ($lastUser) {
+        //             $number = intval(substr($lastUser->matricule, -4)) + 1;
+        //         } else {
+        //             $number = 1;
+        //         }
+
+        //         $user->matricule = $prefix . $year . str_pad($number, 4, '0', STR_PAD_LEFT);
+        //     }
+        // });
+
         static::creating(function ($user) {
-            if (empty($user->matricule)) {
+            if (empty($user->matricule) || str_contains($user->matricule, 'TEMP')) {
+                // ... ta logique de préfixe ...
                 $prefix = match ($user->role) {
                     'Administrateur' => 'A',
                     'Enseignant'     => 'P',
@@ -116,32 +144,26 @@ class User extends Authenticatable
                 };
 
                 $year = date('Y');
-
-                // AJOUTE withTrashed() ICI 👇
                 $lastUser = self::withTrashed()
                     ->where('matricule', 'like', $prefix . $year . '%')
+                    ->where('matricule', 'NOT LIKE', 'TEMP%') // On ignore les temporaires
                     ->orderBy('matricule', 'desc')
                     ->first();
 
-                if ($lastUser) {
-                    $number = intval(substr($lastUser->matricule, -4)) + 1;
-                } else {
-                    $number = 1;
-                }
-
+                $number = $lastUser ? intval(substr($lastUser->matricule, -4)) + 1 : 1;
                 $user->matricule = $prefix . $year . str_pad($number, 4, '0', STR_PAD_LEFT);
             }
         });
     }
 
-/**
- * Les modules enseignés par cet utilisateur (professeur).
- */
-public function modulesEnseignes()
-{
-    return $this->belongsToMany(Module::class, 'module_enseignant', 'user_id', 'module_id')
-                ->withTimestamps();
-}
+    /**
+     * Les modules enseignés par cet utilisateur (professeur).
+     */
+    public function modulesEnseignes()
+    {
+        return $this->belongsToMany(Module::class, 'module_enseignant', 'user_id', 'module_id')
+            ->withTimestamps();
+    }
 
 
     /**
