@@ -110,42 +110,42 @@ class UserController extends Controller
         return back()->with('success', 'Utilisateur restauré');
     }
     // Ajoute ceci à la fin de ton UserController
-public function bulkDestroy(Request $request)
-{
-    $ids = $request->input('ids', []);
-    if (!empty($ids)) {
-        User::whereIn('id', $ids)->delete();
-        return redirect()->route('users.index')->with('success', count($ids) . ' utilisateurs déplacés vers la corbeille');
+    public function bulkDestroy(Request $request)
+    {
+        $ids = $request->input('ids', []);
+        if (!empty($ids)) {
+            User::whereIn('id', $ids)->delete();
+            return redirect()->route('users.index')->with('success', count($ids) . ' utilisateurs déplacés vers la corbeille');
+        }
+        return back()->with('error', 'Aucun utilisateur sélectionné');
     }
-    return back()->with('error', 'Aucun utilisateur sélectionné');
-}
 
-// Suppression définitive d'un seul utilisateur
-public function forceDelete($id)
-{
-    User::withTrashed()->findOrFail($id)->forceDelete();
-    return back()->with('success', 'Utilisateur supprimé définitivement.');
-}
-
-// Restauration groupée
-public function bulkRestore(Request $request)
-{
-    $ids = $request->input('ids', []);
-    if (!empty($ids)) {
-        User::withTrashed()->whereIn('id', $ids)->restore();
-        return back()->with('success', count($ids) . ' utilisateurs restaurés.');
+    // Suppression définitive d'un seul utilisateur
+    public function forceDelete($id)
+    {
+        User::withTrashed()->findOrFail($id)->forceDelete();
+        return back()->with('success', 'Utilisateur supprimé définitivement.');
     }
-    return back();
-}
 
-// Suppression définitive groupée
-public function bulkForceDelete(Request $request)
-{
-    $ids = $request->input('ids', []);
-    if (!empty($ids)) {
-        User::withTrashed()->whereIn('id', $ids)->forceDelete();
-        return back()->with('success', count($ids) . ' utilisateurs supprimés définitivement.');
+    // Restauration groupée
+    public function bulkRestore(Request $request)
+    {
+        $ids = $request->input('ids', []);
+        if (!empty($ids)) {
+            User::withTrashed()->whereIn('id', $ids)->restore();
+            return back()->with('success', count($ids) . ' utilisateurs restaurés.');
+        }
+        return back();
     }
-    return back();
-}
+
+    // Suppression définitive groupée
+    public function bulkForceDelete(Request $request)
+    {
+        $ids = $request->input('ids', []);
+        if (!empty($ids)) {
+            User::withTrashed()->whereIn('id', $ids)->forceDelete();
+            return back()->with('success', count($ids) . ' utilisateurs supprimés définitivement.');
+        }
+        return back();
+    }
 }

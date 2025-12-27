@@ -74,6 +74,8 @@ Route::post('/bilan-general/store', [BilanController::class, 'store'])->name('bi
 Route::middleware(['auth'])->group(function () {
 // Cette route doit être placée AVANT le resource
     Route::post('users/import', [ImportExportUserController::class, 'store'])->name('users.import');
+    // Route unique pour l'exportation (gère Excel et PDF via le paramètre ?format=)
+    Route::get('/users/export', [ImportExportUserController::class, 'export'])->name('users.export');
     // Gestion Corbeille
     Route::get('users-trash', [UserController::class, 'trash'])->name('users.trash');
     Route::post('users/{id}/restore', [UserController::class, 'restore'])->name('users.restore');
